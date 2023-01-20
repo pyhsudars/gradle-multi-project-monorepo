@@ -15,8 +15,10 @@ jobs:
           java-version: '11'
 
       - name: Run gradle build
-        run: ./gradlew :apps:inventory-app:build
-
+        run: |
+          chmod +x gradlew
+          ./gradlew :apps:inventory-app:build
+          
       - uses: actions/upload-artifact@v2
         with:
           path: apps/inventory-app/build/libs/*.jar
